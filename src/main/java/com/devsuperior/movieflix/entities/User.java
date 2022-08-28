@@ -23,6 +23,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.devsuperior.movieflix.dto.UserDTO;
+
 
 
 
@@ -52,7 +54,11 @@ public class User implements UserDetails, Serializable{
 	
 	public User() {
 	}
-
+	public User(UserDTO dto) {
+		this.id= dto.getId();
+		this.name =dto.getName();
+		this.email = dto.getEmail();
+	}
 	public User(Long id, String name, String email, String password) {
 		super();
 		this.id = id;
